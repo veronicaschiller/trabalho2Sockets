@@ -1,20 +1,15 @@
 import socket
 
-# Função para enviar solicitações para o servidor
 def enviar_pedido(servidor, dados):
     try:
-        # Criação do socket TCP/IP
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
-        # Conexão ao servidor
         server_address = (servidor, 12345)
         print(f"Conectando-se a {server_address}")
         sock.connect(server_address)
 
-        # Envia os dados para o servidor
         sock.sendall(dados.encode())
 
-        # Aguarda a resposta do servidor
         response = sock.recv(4096).decode()
         print(f"Resposta do servidor:\n{response}")
 
@@ -25,7 +20,6 @@ def enviar_pedido(servidor, dados):
         # Fecha o socket
         sock.close()
 
-# Função para exibir o menu interativo do cliente
 def menu_cliente():
     while True:
         print("---------- Restaurante Docinho ----------")
