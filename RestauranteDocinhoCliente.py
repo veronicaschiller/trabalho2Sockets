@@ -17,7 +17,6 @@ def enviar_pedido(servidor, dados):
         print(f"Erro ao enviar dados para o servidor: {e}")
 
     finally:
-        # Fecha o socket
         sock.close()
 
 def menu_cliente():
